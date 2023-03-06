@@ -14,6 +14,13 @@ const BarsitaForm = () =>{
     const [currentDrink, setCurrentDrink] = useState("");
     const [trueRecipe, setTrueRecipe] = useState({});
 
+    const [correct_temp, setCheckedTemperature] = useState('');
+    const [correct_syrup, setCheckedSyrup] = useState('');
+    const [correct_milk, setCheckedMilk] = useState('');
+    const [correct_blended, setCheckedBlended] = useState('');
+
+
+
     const ingredients = {
         'temperature' : ['hot', 'lukewarm', 'cold'],
       
@@ -24,7 +31,30 @@ const BarsitaForm = () =>{
         'blended': ['yes', 'turbo', 'no']
     }
 
-    const onCheckAnswer = () => {};
+    const onCheckAnswer = () => {
+        if (trueRecipe.temp != inputs['temperature']){
+            setCheckedTemperature('wrong');
+        } else {
+            setCheckedTemperature("correct");
+        }
+        
+        if (trueRecipe.syrup != inputs['syrup']){
+            setCheckedSyrup('wrong');
+        } else {
+            setCheckedSyrup("correct");
+        }
+        if (trueRecipe.milk != inputs['milk']){
+            setCheckedMilk('wrong');
+        } else {
+            setCheckedMilk("correct");
+        }
+        if (trueRecipe.blended != inputs['blended']){
+            setCheckedBlended('wrong');
+        } else {
+            setCheckedBlended("correct");
+        }
+
+    };
 
     
     const onNewDrink = () => {
@@ -33,16 +63,22 @@ const BarsitaForm = () =>{
             'milk': '',
             'syrup': '',
             'blended': '' });
-            
-          getNextDrink();
+        
+        setCheckedTemperature('');
+        setCheckedSyrup('');
+        setCheckedMilk('');
+        setCheckedBlended('');
+        
+        getNextDrink();
     };
 
-    const getNewDrink = () =>{
+    const getNextDrink = () =>{
         let randomDrinkIndex = Math.floor(Math.random() * drinksJson.drinks.length);
 
         setCurrentDrink(drinksJson.drinks[randomDrinkIndex].name);
         setTrueRecipe(drinksJson.drinks[randomDrinkIndex].ingredients);
     }
+
     return(
         <div>
             <h2>Hi, I'd like to order a:</h2>
@@ -56,10 +92,10 @@ const BarsitaForm = () =>{
                     🔄
                 </button>
             </div>
-            <form>
+            <form className="container">
                 <div className="mini-container">
                     <h3>Temperature</h3>
-                    <div className="answer-space">
+                    <div className="answer-space"  id={correct_temp}>
                         {inputs["temperature"]}
                     </div>
                     <RecipeChoices
@@ -74,7 +110,7 @@ const BarsitaForm = () =>{
                 </div>
                 <div className="mini-container">
                     <h3>Syrup</h3>
-                    <div className="answer-space">
+                    <div className="answer-space"  id={correct_syrup}>
                         {inputs["syrup"]}
                     </div>
                     <RecipeChoices
@@ -89,7 +125,7 @@ const BarsitaForm = () =>{
                 </div>
                 <div className="mini-container">
                     <h3>Milk</h3>
-                    <div className="answer-space">
+                    <div className="answer-space"  id={correct_milk}>
                         {inputs["milk"]}
                     </div>
                     <RecipeChoices
@@ -104,7 +140,7 @@ const BarsitaForm = () =>{
                 </div>
                 <div className="mini-container">
                     <h3>Blended</h3>
-                    <div className="answer-space">
+                    <div className="answer-space"  id={correct_blended}>
                         {inputs["blended"]}
                     </div>
                     <RecipeChoices
