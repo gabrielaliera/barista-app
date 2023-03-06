@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import './App.css'
 import BaristaForm from './Components/baristaForm';
+import logo from './assets/omg-logo.png';
 
 function App() {
 
   return (
     <div>
       <div className="title-container">
+      <img className="omg-logo" src={logo}></img>
         <h1 className="title">On My Grind</h1>
         <p>So you think you can barista? Let's put that to the test...</p>
       </div>

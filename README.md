@@ -1,4 +1,4 @@
-# On My Grind Exemplar Lab
+# On My Grind Lab
 
 ## Overview
 
@@ -37,8 +37,6 @@ npm install
 
 ### Run On My Grind
 
-Note: In the 'required features only' version of this lab, the choices for each drink will be radio buttons, however the current state of this repo includes the stretch features, where the input from the user is taken in text boxes where they type in the choice they want to guess. If you would like to use only the radio buttons for a demo, make the necessary changes in Components/recipeChoices.jsx, there are comments to tell you what you should comment and uncomment for the required and stretch features. (Tip: the CMD+/ on Mac or CTRL+/ on Windows is a great shortcut to mass comment or uncomment out code).
-
 In the repo directory, run the following in your terminal:
 
 ```sh
@@ -52,6 +50,9 @@ Visit the web application in the browser
 http://localhost:5173/
 ```
 <br/>
+
+### Notes
+In this project, I learned to creat React Forms and dynamically populate user answer choices. In addition, I learned to use state variables to edit information on a page.
 
 ---
 
