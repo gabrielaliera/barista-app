@@ -1,14 +1,18 @@
-import REact, {Component, useState} from "react";
+import React, {Component, useState} from "react";
 import RecipeChoices from "./recipeChoices";
+import drinksJson from "./drinks.json"
 
 const BarsitaForm = () =>{
 
-    const [input, setInputs] = useState({
+    const [inputs, setInputs] = useState({
         'temperature': '',
         'milk': '',
         'syrup': '',
         'blended': '' 
     });
+
+    const [currentDrink, setCurrentDrink] = useState("");
+    const [trueRecipe, setTrueRecipe] = useState({});
 
     const ingredients = {
         'temperature' : ['hot', 'lukewarm', 'cold'],
@@ -22,16 +26,41 @@ const BarsitaForm = () =>{
 
     const onCheckAnswer = () => {};
 
-    const onNewDrink = () => {};
+    
+    const onNewDrink = () => {
+        setInputs({
+            'temperature': '',
+            'milk': '',
+            'syrup': '',
+            'blended': '' });
+            
+          getNextDrink();
+    };
 
+    const getNewDrink = () =>{
+        let randomDrinkIndex = Math.floor(Math.random() * drinksJson.drinks.length);
+
+        setCurrentDrink(drinksJson.drinks[randomDrinkIndex].name);
+        setTrueRecipe(drinksJson.drinks[randomDrinkIndex].ingredients);
+    }
     return(
         <div>
             <h2>Hi, I'd like to order a:</h2>
+            <div className="drink-container">
+                <h2 className="mini-header">{currentDrink}</h2>
+                <button
+                    type="new-drink-button"
+                    className="button newdrink"
+                    onClick={onNewDrink}
+                >
+                    🔄
+                </button>
+            </div>
             <form>
                 <div className="mini-container">
                     <h3>Temperature</h3>
                     <div className="answer-space">
-                        {inputs["temparature"]}
+                        {inputs["temperature"]}
                     </div>
                     <RecipeChoices
                         handleChange={ (e) => setInputs((prevState) => ({
