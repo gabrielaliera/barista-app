@@ -14,6 +14,7 @@
 .read-the-docs {
   color: #888;
 }
+
 body{
   background-color: white;
   color: black;
@@ -36,6 +37,7 @@ body{
   padding: 15px;
   border-radius: 15px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  white-space:nowrap;
 }
 
 .mini-header{
@@ -50,33 +52,39 @@ body{
 }
 
 #wrong {
+  text-align: center;
   background-color:rgb(219, 93, 93);
 }
 
 #correct {
+  text-align: center;
   background-color:rgb(191, 116, 191);
 }
 
 .answer-space {
   background-color: rgb(226, 195, 147);
   height: 20px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   width: auto;
   margin-bottom: 20px;
   border-radius: 15px;
   margin-left: auto;
   clear: both;
+  text-align: center;
 }
+
 
 li {
   margin-top:3px;
   margin-bottom:3px;
-  margin-right: 10%;
-  margin-left: 10%;
+  margin-right: 5%;
+  margin-left: 5%;
+  text-align: left;
   background-color: #FFFDD0;
   border-radius: 15px;
   list-style: none;
+
 }
 
 button.newdrink {
