@@ -1,9 +1,25 @@
 import React, {Component, useEffect, useState} from "react";
 
 
-const RecipeChoice = () =>{
+const RecipeChoices = () =>{
     return(
-        <div></div>
+        <div>
+            <div className="radio-buttons">
+                {choices && choices.map((choice) => (
+                    <li key={choice}>
+                        <input 
+                          id={choice}
+                          value={choice}
+                          name={label}
+                          type="radio"
+                          onChange={handleChange}
+                          checked={checked == choice}
+                        />
+                        {choice}
+                    </li>
+                ))}
+            </div>
+        </div>
     );
 };
 
