@@ -64,14 +64,15 @@ body{
 .answer-space {
   background-color: rgb(226, 195, 147);
   height: 20px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   width: auto;
   margin-bottom: 20px;
   border-radius: 15px;
-  margin-left: auto;
+  margin-left: 20px;
+  margin-right: 20px;
   clear: both;
-  text-align: center;
+  
 }
 
 
@@ -80,7 +81,7 @@ li {
   margin-bottom:3px;
   margin-right: 5%;
   margin-left: 5%;
-  text-align: left;
+  text-align: center;
   background-color: #FFFDD0;
   border-radius: 15px;
   list-style: none;
@@ -111,4 +112,7 @@ button.newdrink {
 .drink-container {
   display: flex;
   justify-content: space-between;
+}
+
+.textbox{
 }

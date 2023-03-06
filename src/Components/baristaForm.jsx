@@ -32,23 +32,38 @@ const BarsitaForm = () =>{
     }
 
     const onCheckAnswer = () => {
+        event.preventDefault();
         if (trueRecipe.temp != inputs['temperature']){
+            if (!ingredients["temperature"].includes(inputs["temperature"])) {
+                alert("For temperature, that isn't even an option!");
+              }
             setCheckedTemperature('wrong');
         } else {
             setCheckedTemperature("correct");
         }
         
         if (trueRecipe.syrup != inputs['syrup']){
+            if (!ingredients['syrup'].includes(inputs['syrup']) ){
+                alert("For syrup, that isn't even an option!")
+              }
             setCheckedSyrup('wrong');
         } else {
             setCheckedSyrup("correct");
         }
+        
         if (trueRecipe.milk != inputs['milk']){
+            if (!ingredients['milk'].includes(inputs['milk']) ){
+                alert("For milk, that isn't even an option!")
+            }
             setCheckedMilk('wrong');
         } else {
             setCheckedMilk("correct");
         }
+        
         if (trueRecipe.blended != inputs['blended']){
+            if (!ingredients['blended'].includes(inputs['blended']) ){
+                alert("For blended, that isn't even an option!")
+            }
             setCheckedBlended('wrong');
         } else {
             setCheckedBlended("correct");
@@ -105,7 +120,8 @@ const BarsitaForm = () =>{
                         }))}
                         label="temperature"
                         choices={ingredients["temperature"]}
-                        checked={inputs["temperature"]}
+                        currentVal={inputs["temperature"]}
+                        //checked={inputs["temperature"]}
                     />
                 </div>
                 <div className="mini-container">
@@ -120,7 +136,8 @@ const BarsitaForm = () =>{
                         }))}
                         label="syrup"
                         choices={ingredients["syrup"]}
-                        checked={inputs["syrup"]}
+                        currentVal={inputs["syrup"]}
+                        //checked={inputs["syrup"]}
                     />
                 </div>
                 <div className="mini-container">
@@ -135,7 +152,8 @@ const BarsitaForm = () =>{
                         }))}
                         label="milk"
                         choices={ingredients["milk"]}
-                        checked={inputs["milk"]}
+                        currentVal={inputs["milk"]}
+                        //checked={inputs["milk"]}
                     />
                 </div>
                 <div className="mini-container">
@@ -150,7 +168,8 @@ const BarsitaForm = () =>{
                         }))}
                         label="blended"
                         choices={ingredients["blended"]}
-                        checked={inputs["blended"]}
+                        currentVal={inputs["blended"]}
+                        //checked={inputs["blended"]}
                     />
                 </div>
 
